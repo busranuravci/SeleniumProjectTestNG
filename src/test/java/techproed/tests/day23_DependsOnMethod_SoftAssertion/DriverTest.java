@@ -16,4 +16,5 @@ public class DriverTest {
         System.out.println(ConfigReader.getProperty("password"));
 
     }
+
 }
