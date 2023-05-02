@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<!--    .xml file ile paralel test yapmak için projemizi öncelikle buna göre dizayn etmeliyiz
+        Çalışan testler birbirinden bağımsız olmalıdır.Bağımlılığı olan testler paralel çalıştırmada hata verebilir.
+
+        Paralel test yapabilmek için öncelikle <suite> tag'ına parallel parametresi yazarız, sonrasinda
+        parallel parametresine class,method,tests gibi atamalarla hangi seviyede test yapacağını belirleriz
+        class -> Her bir işlem için bir class ile run eder. Çalıştığı class'ta işlem bitince sıradaki class'a geçer
+        method -> Her bir işlem için bir method ile run eder.
+        tests -> Her bir işlem için bir test ile run eder.
+
+   Parallel test AMAÇ : testleri kısa sürede bitirmek. Bunu da fazladan browser açarak gerçekleştirir !
+-->
+
+<suite name="All Test Suite" parallel="classes" thread-count="2">  <!-- thread-count :: kaç browser açılsın-->
+    <test name="Parallel Test">
+
+        <classes>
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.DependsOnMethod01">
+                <methods>
+                    <include name="amazonTest"/>
+                    <include name="amazonTest2"/>
+                    <include name="amazonTest3"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.DependsOnMethodsWPriority">
+                <methods>
+                    <include name="amazonTest"/>
+                    <include name="amazonTest2"/>
+                    <include name="amazonTest3"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.DriverTest">
+                <methods>
+                    <include name="driverTest"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.SoftAssertion01">
+                <methods>
+                    <include name="amazonTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

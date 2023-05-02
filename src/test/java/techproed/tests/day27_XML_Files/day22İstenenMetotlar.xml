@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Include / Exclude çalıştırma-->
+
+<suite name="All Test Suite">
+    <test verbose="4" name="Day 22 Seçilen/İstenen Testleri Çalıştırma">
+
+        <classes>
+            <class name="techproed.tests.day22_Annotation.Annotations01">
+                <methods>
+                    <exclude name="beforeSuite"/>
+                    <include name="test01"/>
+                    <exclude name="test02"/>
+                    <include name="test03"/>
+
+                </methods>
+            </class>
+            <class name="techproed.tests.day22_Annotation.Priority01">
+                <methods>
+
+                    <exclude name="amazonTest"/>
+                    <include name="facebookTest"/>
+                    <include name="test1"/>
+                    <exclude name="setUp"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

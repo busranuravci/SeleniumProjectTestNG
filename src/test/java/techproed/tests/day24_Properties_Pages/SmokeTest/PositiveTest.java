@@ -9,7 +9,7 @@ import techproed.utilities.Driver;
 
 public class PositiveTest {
 
-    @Test
+    @Test(groups = "smoke")      //--> group xml file için belirttik
     public void test1() {
 
          /*

@@ -11,7 +11,7 @@ import techproed.utilities.ReusableMethods;
 
 public class NegativeTest {
 
-    @Test
+    @Test(groups = "smoke")  //--> group xml file için belirttik
     public void test1() {
 
          /*

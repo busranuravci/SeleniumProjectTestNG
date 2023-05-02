@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Tek test tag içinde çalıştırma-->
+
+<suite name="Day 23 ve Day 25 İstenen Classları Çalıştırma">
+
+    <test name=" İstenen Classları Çalıştırma">
+        <classes>
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.DependsOnMethod01"/>
+
+            <class name="techproed.tests.day23_DependsOnMethod_SoftAssertion.DriverTest"/>
+
+            <class name="techproed.tests.day25_ExcelUtils.BlueRentalExcelTest2"/>
+        </classes>
+    </test>
+</suite>
