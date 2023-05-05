@@ -1,0 +1,32 @@
+*************Listeners NEDIR?***************************
+TestNG Listeners (@Listeners) selenium kodlarini “DINLEMEK” icin kullanilir.
+Listenerslar yardımıyla test case sonuclarini, hata mesajlarını(exceptions yada errors), yada testlerin baslama, bitme, gecme(PASS), veya kalma(FAIL) durumlarini
+dinleyebiliriz.
+Hatta sayfa geçişleri, button tıklama, data girme gibi daha detaylı kod dinlemeleri yapilabilir.
+
+************Listeners NEDEN kullanilir?*****************
+Test Automasyondaki PASS, FAIL, SKIP, ERROR durumlarında raporlamalar icin(Test Fail ettiginde ekran goruntusu al gibi)
+Loglama(mesaj yazdirma) islemleri icin. Ornegin login Test Case Fail olma durumunda “login test case Fail etti” yazdirilabilir
+
+=======================================================================================================================
+
+*** onStart(ITestContext arg0)
+Tum Testlerden once tek bir sefer calisir (@BeforeSuite benzeri)
+
+*** onFinish(ITestContext arg0)
+Tum Testlerden sonra tek bir sefer calisir (@AfterSuite benzeri)
+
+*** onTestFailure(ITestResult result)
+Sadece FAIL eden testlerden hemen sonra calisir
+
+*** onTestSkipped(ITestResult arg0)
+Ignore(Atlanan) edilen testlerden hemen sonra calisir
+
+*** onTestStart(ITestResult arg0)
+Her bir Test den sonra birer sefer calisir (@AfterMethod benzeri)
+
+*** onTestSuccess(ITestResult arg0)
+Sadece PASS eden testlerden hemen sonra calisir
+
+*** onTestFailedButWithinSuccessPercentage(ITestResult arg0) % % % %  --> kullanılmıyor pek
+Belirli bir test FAIL sonrasi calisir
