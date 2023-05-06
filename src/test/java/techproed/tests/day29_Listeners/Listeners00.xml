@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <listeners>
+               <listener class-name="techproed.utilities.Listeners"/>
+    </listeners>
+
+    <test verbose="2"
+          name="C:/Users/Volkan/IdeaProjects/SeleniumProjectTestNG/src/test/java/techproed/tests/day29_Listeners/Listeners02.java">
+        <classes>
+            <class name="techproed.tests.day29_Listeners.Listeners02">
+                <methods>
+                    <include name="test1"/>
+               <exclude name="test2"/>
+                    <include name="test3"/>
+                </methods>
+            </class>
+
+    <class name="techproed.tests.day24_Properties_Pages.SmokeTest.NegativeTest"/>
+
+        </classes>
+    </test>
+</suite>
+
+
+<!--  Listener HTML raporlaması için sağ tık-Modify Run Configuration-Listeners- + ve reporterlardan istenen seç OK
+      artık solda küçük harflerle yazılı test-output a bizim testlerimizin HTML raporları geliyor.
+      istenen browser'da açıp da incelenebiliyor.
+-->

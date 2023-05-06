@@ -1,10 +1,12 @@
 package techproed.utilities;
 
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
+import org.testng.annotations.ITestAnnotation;
 
-public class Listeners implements ITestListener {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+public class Listeners implements ITestListener, IRetryAnalyzer, IAnnotationTransformer {
 
      /*
     Listeners; TestNG de bir test'in durumunu ve sonucunu izleyen ve bu duruma yanıt veren bir yapıdır.
@@ -12,6 +14,7 @@ public class Listeners implements ITestListener {
         Bunun için TestNG den ITestListener arayüzünü(interface) kullanırız. Oluşturduğumuz Listeners
     class'ına ITestListener arayüzündeki methodları Override etmek için implements ederiz
      */
+
 
 
     // public yazdığımız an implements sayesinde metotları hazır gösteriyor::
@@ -38,7 +41,7 @@ public class Listeners implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("onTestFailure Methodu -> FAILED olan testlerden sonra tek bir sefer çağrılır  " + result.getName());
-      //  ReusableMethods.tumSayfaResmi(result.getName());   // ---> fail olan testin SS i alıyoruz
+        ReusableMethods.tumSayfaResmi();   // ---> fail olan testin SS i alıyoruz
     }
 
     @Override
@@ -46,4 +49,40 @@ public class Listeners implements ITestListener {
         System.out.println("onTestSkipped Methodu -> SKIP(atlanan) olan testlerden sonra tek bir sefer çağrılır  " + result.getName());
     }
 
+   // =============== \\
+
+    private int retryCount = 0;
+    private static final int maxRetryCount = 1;
+
+    @Override
+    public boolean retry(ITestResult result) {
+        if (retryCount < maxRetryCount) {
+            retryCount++;
+            return true;
+        }
+        return false;
+    }
+     /*
+    Bu sınıf sadece FAIL olan test case'leri tekrar çalıştırır
+    maxRetryCount ek olarak çalisma sayısıdır. Bu örnekte Fail olan test (maxRetryCount = 1) normal bir kere
+    çalıştıktan sonra fail olursa 1 kez daha çalışacaktır gibi.
+     */
+
+
+// ============ \\
+
+
+    // public yazdığımız an implements(IAnnotationTransformer) sayesinde metotları hazır gösteriyor::
+    @Override
+    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+        annotation.setRetryAnalyzer(Listeners.class);
+    }
+           // biz şuan annotaion'lar ad kullandığımız için ordan çağırdık.
+    /*
+    Bu methodun amacı; test notasyonlarını, sınıfları, cons.ları ve methodları transform(dönüştürme) etmemize
+olanak sağlar
+    Bu method sayesinde Listeners sınıfını .xml dosyasında kullanabileceğiz ve istediğimiz class'ları fail
+olma durumunda listeners sınıfı retry methodunu kullanarak istediğimiz kadar tekrar çalıştırabileceğiz.
+HER BIR TEST ANNOTAION EKLEMEK YERİNE TEK BİR YERDEN HEPSİ İÇİN KULLANIMA İMKAN VERİYOR.
+ */
 }

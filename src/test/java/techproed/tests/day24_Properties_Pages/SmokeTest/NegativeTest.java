@@ -1,5 +1,6 @@
 package techproed.tests.day24_Properties_Pages.SmokeTest;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
@@ -25,11 +26,15 @@ public class NegativeTest {
          */
 
         Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+    Reporter.log("BlueRental sayfasına gidildi");
 
         BlueRentalPage blueRentalPage = new BlueRentalPage();
         blueRentalPage.login.click();
+    Reporter.log("Login butonuna tıklandı");
+
         blueRentalPage.email.sendKeys(ConfigReader.getProperty("fakeEmail"),
                 Keys.TAB,ConfigReader.getProperty("fakePass"));
+    Reporter.log("Email ve Password girildi");
         blueRentalPage.login2.click();
 
         ReusableMethods.bekle(3);

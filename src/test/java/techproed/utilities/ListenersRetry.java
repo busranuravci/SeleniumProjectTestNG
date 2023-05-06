@@ -6,6 +6,8 @@ import org.testng.ITestResult;
 public class ListenersRetry implements IRetryAnalyzer {
 
 
+    // BU CLASS SONRADAN LISTENERS UTILI'NE EKLENDİ !!!
+
     /*
     Bu sınıf sadece FAIL olan test case'leri tekrar çalıştırır
     maxRetryCount ek olarak çalisma sayısıdır. Bu örnekte Fail olan test (maxRetryCount = 1) normal bir kere
