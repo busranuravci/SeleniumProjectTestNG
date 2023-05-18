@@ -12,8 +12,9 @@ public class LocatorBusra {
     }
 
 
-    @FindBy(xpath = "//*[@class='login inline-type']")
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[9]/div/div/a[1]/span")
     public WebElement signIn;
+
 
     @FindBy(id = "username")
     public WebElement userNameBox;
@@ -21,52 +22,53 @@ public class LocatorBusra {
     @FindBy(id = "password")
     public WebElement passwordBox;
 
-    @FindBy(name = "login")
+    @FindBy(xpath = "//*[@id=\"signin\"]/form/button")
     public WebElement signInButton;
 
 
-    @FindBy(xpath = "//*[@class='form-control']")
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[3]/div/div/form/input[2]")
     public WebElement searchBox;
 
-    @FindBy(className = "single_add_to_cart_button button alt")
+    @FindBy(xpath = "//*[@id=\"product-25781\"]/div[2]/div/form/div/div/div/button")
     public WebElement addCartButton;
 
-    @FindBy(xpath = "(//div[@class='elementor-widget-container'])[6]")
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[6]/div/div/a/i")
     public WebElement cartIcon;
 
-    @FindBy(xpath = "//a[@class='button checkout wc-forward']")
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[6]/div/div/div[2]/div/p[2]/a[2]")
     public WebElement checkOutButton;
 
     @FindBy(id = "billing_first_name")
     public WebElement firstnameBox;
 
-    @FindBy(className = "woocommerce-checkout-review-order")
+    @FindBy(xpath = "//*[@id=\"order_review\"]")
     public WebElement reviewOrderButton;
 
     @FindBy(id = "place_order")
     public WebElement placeOrderButton;
 
-    @FindBy(xpath = "//div[@class='woocommerce-order']")
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div/p")
     public WebElement successfulText;
 
-    @FindBy(linkText = "My Orders")
+    @FindBy(xpath = "//*[@id=\"menu-item-1066\"]/a")
     public WebElement myOrdersButton;
 
-    @FindBy(className = "main pt-lg")
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div/div")
     public WebElement orderScreen;
 
-    @FindBy(xpath = "//a[@class='showcoupon']")
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div[2]/a")
     public WebElement enterYourCoupon;
 
     @FindBy(id = "coupon_code")
     public WebElement couponCodeBox;
 
 
-    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/form[1]/div[1]/button")
     public WebElement couponApplyButton;
 
-    @FindBy(xpath = "//tr[@class='cart-discount coupon-nike20']")
+    @FindBy(xpath = "//*[@id=\"order_review\"]/table/tfoot/tr[2]/th")
     public WebElement couponDiscountText;
+
 
 
 }

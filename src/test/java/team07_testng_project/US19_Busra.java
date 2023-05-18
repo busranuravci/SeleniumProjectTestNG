@@ -18,11 +18,12 @@ public class US19_Busra {
 
         Driver.getDriver().get(ConfigReader.getProperty("hubcomUrl"));
         locatorBusra.signIn.click();
-        locatorBusra.userNameBox.sendKeys(ConfigReader.getProperty("validEmail"));
-        locatorBusra.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
+        locatorBusra.userNameBox.sendKeys("avcibusranur00@gmail.com");
+    ReusableMethods.bekle(2);
+        locatorBusra.passwordBox.sendKeys("vendor123");
         locatorBusra.signInButton.submit();
 
-    ReusableMethods.bekle(5);
+    ReusableMethods.bekle(10);
         locatorBusra.searchBox.sendKeys("NIKE BAG",Keys.ENTER);
     ReusableMethods.bekle(5);
         locatorBusra.addCartButton.click();
@@ -49,4 +50,6 @@ public class US19_Busra {
          Driver.closeDriver();
 
     }
+
+
 }

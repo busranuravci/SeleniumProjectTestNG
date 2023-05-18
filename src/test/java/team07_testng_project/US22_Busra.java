@@ -9,6 +9,7 @@ import techproed.utilities.ReusableMethods;
 
 public class US22_Busra {
 
+
     LocatorBusra locatorBusra;
 
     @Test
@@ -17,15 +18,16 @@ public class US22_Busra {
 
         Driver.getDriver().get(ConfigReader.getProperty("hubcomUrl"));
         locatorBusra.signIn.click();
-        locatorBusra.userNameBox.sendKeys(ConfigReader.getProperty("validEmail"));
-        locatorBusra.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
+        locatorBusra.userNameBox.sendKeys("avcibusranur00@gmail.com");
+        ReusableMethods.bekle(2);
+        locatorBusra.passwordBox.sendKeys("vendor123");
         locatorBusra.signInButton.submit();
 
-        ReusableMethods.bekle(5);
+        ReusableMethods.bekle(10);
         locatorBusra.searchBox.sendKeys("NIKE BAG", Keys.ENTER);
         ReusableMethods.bekle(5);
         locatorBusra.addCartButton.click();
-
+    ReusableMethods.bekle(5);
         locatorBusra.cartIcon.click();
         locatorBusra.checkOutButton.click();
         ReusableMethods.bekle(5);
@@ -35,7 +37,7 @@ public class US22_Busra {
         locatorBusra.enterYourCoupon.click();
         locatorBusra.couponCodeBox.sendKeys("nike20");
         locatorBusra.couponApplyButton.submit();
-
+   ReusableMethods.bekle(2);
         Assert.assertTrue(locatorBusra.couponDiscountText.isDisplayed());
 
         locatorBusra.firstnameBox.sendKeys("Mary",Keys.TAB,"Jane",Keys.TAB,Keys.TAB,Keys.TAB,"Hollywood Blv. Celebrity St.",Keys.TAB,
@@ -50,4 +52,6 @@ public class US22_Busra {
         Driver.closeDriver();
 
     }
+
+
 }
