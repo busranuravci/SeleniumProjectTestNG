@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite" parallel="classes">
+
+    <test verbose="3" preserve-order="true"
+          name="C:/Users/Volkan/IdeaProjects/SeleniumProjectTestNG/src/test/java/techproed/tests/selenium_grid">
+
+        <classes>
+            <class name="techproed.tests.selenium_grid.TC01">
+                <methods>
+                    <include name="testChrome"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.selenium_grid.TC02">
+                <methods>
+                    <include name="testFirefox"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.selenium_grid.TC03">
+                <methods>
+                    <include name="testEdge"/>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+</suite>
